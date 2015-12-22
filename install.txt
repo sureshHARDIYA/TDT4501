@@ -1,0 +1,48 @@
+There are two files:
+
+1. artread
+2. clicklog
+
+In artread, 
+there is,
+		id  : identifier
+		url  : url
+		avage : average views
+		tviews : total views
+		v_dir : click from direct source
+		v_int : number of internal clicks 
+		v_fb : number of clicks from facbook
+		v_ext : number of clicks from external
+		section : section somewhat like category
+		tstamp : timestamp when news article was published (number of seconds)
+					[year-month-day-hour-minute-second]
+In click log there is:
+		id : id  is article id in artread
+		tsession : session
+		tage  :  number of seconds after news article was published
+		tref  : reference URL
+
+ 
+/********************************************/
+INTALLATION AND CONFIGURATION
+/********************************************/
+
+To run the application :
+
+1. Run the spark Command
+	./sbin/start-all.sh
+
+2. Compile the Application: Run from Appliction root
+	mvn clean package 
+
+3. Run the jar file application
+
+	./bin/spark-submit --class com.sitestat.loglys.Loglys --master spark://Sureshs-MacBook-Pro.local:7077 --deploy-mode client /Users/sureshkumarmukhiya/Desktop/loglys/target/loglys-1.0-SNAPSHOT.jar --artread-file /Users/sureshkumarmukhiya/Downloads/basis/dagbladet/artread --clicklog-file /Users/sureshkumarmukhiya/Downloads/basis/dagbladet/clicklog
+
+
+	To save the output to File use the command:
+	./bin/spark-submit --class com.sitestat.loglys.Loglys --master spark://Sureshs-MacBook-Pro.local:7077 --deploy-mode client /Users/sureshkumarmukhiya/Desktop/loglys/target/loglys-1.0-SNAPSHOT.jar --artread-file /Users/sureshkumarmukhiya/Downloads/basis/dagbladet/artread --clicklog-file /Users/sureshkumarmukhiya/Downloads/basis/dagbladet/clicklog > user2.txt
+
+
+	 ./bin/spark-submit --class com.sitestat.loglys.Loglys --master spark://Sureshs-MacBook-Pro.local:7077 --deploy-mode client /Users/sureshkumarmukhiya/Desktop/loglys/target/loglys-1.0-SNAPSHOT.jar --artread-file /Users/sureshkumarmukhiya/Downloads/basis/adressa/artread --clicklog-file /Users/sureshkumarmukhiya/Downloads/basis/adressa/clicklog > add.txt
+
